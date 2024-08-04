@@ -1,0 +1,18 @@
+includes:
+    - ../larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app/
+
+    ## Exclude files or folder from analysis ##
+    # excludePaths:
+    #    - app/Modules/*/Tests/*
+
+    level: 5
+    checkOctaneCompatibility: true
+
+    # https://phpstan.org/config-reference#parallel-processing
+    parallel:
+        jobSize: 100
+        processTimeout: 300.0
