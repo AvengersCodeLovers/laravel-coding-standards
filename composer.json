@@ -6,6 +6,7 @@
     "require": {
         "friendsofphp/php-cs-fixer": "^3.59",
         "phpstan/phpstan": "^1.11",
-        "larastan/larastan": "^2.9"
+        "larastan/larastan": "^2.9",
+        "phpstan/phpstan-strict-rules": "^1.6"
     }
 }
