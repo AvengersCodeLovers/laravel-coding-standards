@@ -1,22 +1,22 @@
 includes:
-    - vendor/larastan/larastan/extension.neon
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - ../../larastan/larastan/extension.neon
+    - ../../phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
-    paths:
-        - app/
-
-    ## Exclude files or folder from analysis ##
-    # excludePaths:
-    #    - app/Modules/*/Tests/*
-
-    level: 5
     checkOctaneCompatibility: true
 
-    parameters:
-        strictRules:
-            allRules: false
-            PHPStan\Rules\DisallowedConstructs\DisallowedImplicitArrayCreationRule: true
+    strictRules:
+        allRules: false
+        # TODO: upgrade to v2 to use disallowedImplicitArrayCreation and remove ignoreErrors
+        disallowedConstructs: true
+
+    ignoreErrors:
+        -
+            identifier: ternary.shortNotAllowed
+            reportUnmatched: false
+        -
+            identifier: empty.notAllowed
+            reportUnmatched: false
 
     # https://phpstan.org/config-reference#parallel-processing
     parallel:
