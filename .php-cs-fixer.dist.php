@@ -19,16 +19,21 @@ return (new PhpCsFixer\Config())
         'class_definition' => [
             'space_before_parenthesis' => false,
         ],
-        'braces' => [
-            'allow_single_line_anonymous_class_with_empty_body' => false,
-            'allow_single_line_closure' => false,
-            'position_after_functions_and_oop_constructs' => 'next',
-            'position_after_control_structures' => 'same',
+        'control_structure_braces' => true,
+        'control_structure_continuation_position' => [
+            'position' => 'same_line',
         ],
-        'curly_braces_position' => [
+        'no_multiple_statements_per_line' => true,
+        'declare_parentheses' => true,
+        'braces_position' => [
+            'functions_opening_brace' => 'next_line_unless_newline_at_signature_end',
             'classes_opening_brace' => 'next_line_unless_newline_at_signature_end',
             'anonymous_classes_opening_brace' => 'next_line_unless_newline_at_signature_end',
             'anonymous_functions_opening_brace' => 'same_line',
+        ],
+        'new_with_parentheses' => [
+            'anonymous_class' => false,
+            'named_class' => true,
         ],
         // Use single quote when possible, 'string', "example with 'single-quotes'"
         'single_quote' => true,
@@ -90,7 +95,12 @@ return (new PhpCsFixer\Config())
         ],
         'class_reference_name_casing' => true,
         'object_operator_without_whitespace' => true,
-        'function_typehint_space' => true,
+        'type_declaration_spaces' => [
+            'elements' => [
+                'function',
+                'property',
+            ],
+        ],
         'lambda_not_used_import' => true,
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'no_multi_line',
